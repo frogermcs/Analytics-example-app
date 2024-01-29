@@ -9,11 +9,11 @@ const HomePage = () => {
                     Home Page
                 </Typography>
                 <Typography variant="body1">
-                    Welcome to our website! We are a team dedicated to providing the best services.
+                    Welcome to the website showcasing analytics example. This is simple React application with some mocked components ("pay" buttons, contact forms).
                 </Typography>
                 <Box style={{ marginTop: '20px' }}>
                     <Typography variant="body2">
-                        Our mission is to deliver top-notch solutions to all our clients.
+                        This website implements some analytics events (page views, button clicks, simple conversions) so they can be viewed in Mixpanel, Amplitude and other product analytics tools.
                     </Typography>
                 </Box>
             </Paper>
