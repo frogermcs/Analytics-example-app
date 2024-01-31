@@ -41,7 +41,7 @@ const ContactPage = () => {
             const errorsPayload = {
                 allErrors: errors,
                 errorsList: Object.keys(errors)
-                .filter(x => x !== "")
+                .filter(key => errors[key] !== "")
                 .map((key) => `${key}-${errors[key]}`)
             }
             analytics.track("conversion_Contact_SubmissionError", { errorsPayload });
