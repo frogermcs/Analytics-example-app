@@ -32,7 +32,11 @@ const ContactPage = () => {
             console.log(formData);
             analytics.track("conversion_Contact_SubmissionSuccess");
         } else {
-            analytics.track("conversion_Contact_SubmissionError", { errors });
+            const errorsPayload = {
+                allErrors: errors,
+                errorsList: Object.keys(errors).map((key) => `${key}-${errors[key]}`)
+            }
+            analytics.track("conversion_Contact_SubmissionError", { errorsPayload });
         }
     };
 
