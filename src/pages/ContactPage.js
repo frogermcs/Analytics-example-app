@@ -16,12 +16,17 @@ const ContactPage = () => {
     };
 
     const validate = () => {
+        const errors = getCurrentErrors();
+        setErrors(errors);
+        return Object.values(errors).every(x => x === "");
+    };
+
+    const getCurrentErrors = () => {
         let tempErrors = {};
         tempErrors.name = formData.name ? "" : "Name field is required";
         tempErrors.email = formData.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/) ? "" : "Email is not valid";
         tempErrors.message = formData.message ? "" : "Message field is required";
-        setErrors(tempErrors);
-        return Object.values(tempErrors).every(x => x === "");
+        return tempErrors;
     };
 
     const handleSubmit = (event) => {
@@ -32,6 +37,7 @@ const ContactPage = () => {
             console.log(formData);
             analytics.track("conversion_Contact_SubmissionSuccess");
         } else {
+            const errors = getCurrentErrors();
             const errorsPayload = {
                 allErrors: errors,
                 errorsList: Object.keys(errors).map((key) => `${key}-${errors[key]}`)
