@@ -6,13 +6,10 @@ const analytics = Analytics({
     app: 'example-app',
     version: 1.0,
     plugins: [
-        mixpanelPlugin({ token: 'ec3e18e109fc46c07a4f0db7aa457d9b' }),
-        amplitudePlugin({ apiKey: '915b4db61dfc9fd78f2f09d701f8db5e' })
+        mixpanelPlugin({ token: process.env.REACT_APP_MIXPANEL_TOKEN }),
+        amplitudePlugin({ apiKey: process.env.REACT_APP_AMPLITUDE_API_KEY })
     ]
 })
-
-console.log('env variable:', process.env.REACT_APP_MIXPANEL_TOKEN)
-console.log(process.env)
 
 window.Analytics = analytics;
 export default analytics
