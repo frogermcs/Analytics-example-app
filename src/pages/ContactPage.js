@@ -40,7 +40,9 @@ const ContactPage = () => {
             const errors = getCurrentErrors();
             const errorsPayload = {
                 allErrors: errors,
-                errorsList: Object.keys(errors).map((key) => `${key}-${errors[key]}`)
+                errorsList: Object.keys(errors)
+                .filter(x => x !== "")
+                .map((key) => `${key}-${errors[key]}`)
             }
             analytics.track("conversion_Contact_SubmissionError", { errorsPayload });
         }
