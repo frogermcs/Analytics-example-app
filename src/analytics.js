@@ -11,7 +11,7 @@ const analytics = Analytics({
     ]
 })
 
-console.log('env variable:', process.env.MIXPANEL_TOKEN)
+console.log('env variable:', process.env.REACT_APP_MIXPANEL_TOKEN)
 
 window.Analytics = analytics;
 export default analytics
